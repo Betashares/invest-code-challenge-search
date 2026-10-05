@@ -2,19 +2,15 @@ import { Context } from 'koa';
 import { StatusCodes } from 'http-status-codes';
 
 import { BaseController } from '../../../shared/controllers/base.controller';
-import {
-  ApiEndpoint,
-  QueryParam,
-  RouteParam,
-} from '../../../shared/models/endpoint.model';
+import { ApiEndpoint, RouteParam } from '../../../shared/models/endpoint.model';
 
-import { InstrumentDocument } from '../models/instrument.model';
 import {
   InstrumentSearchQuery,
   SearchResponse,
 } from '../models/search-query.model';
 import { SearchService } from '../services/search.service';
 import { validateSearchQuery } from '../validation/search-query.validation';
+import type { InstrumentDocument } from '../models/instrument.model';
 
 enum ErrorMessage {
   InstrumentNotFound = 'Instrument not found',
@@ -38,17 +34,7 @@ export class SearchController extends BaseController {
 
     ctx.assert(!error, StatusCodes.BAD_REQUEST, error ?? '');
 
-    const fields = this.getFieldsParam(ctx);
-    const { results, count, indexed_at } =
-      await this.searchService.search(query);
-
-    const response: SearchResponse = {
-      results: results.map((document) => pickFields(document, fields)),
-      count,
-      indexed_at,
-    };
-
-    ctx.body = response;
+    ctx.body = await this.getSearchResponse(ctx, query);
   }
 
   async getInstrument(ctx: Context) {
@@ -61,31 +47,28 @@ export class SearchController extends BaseController {
       `${ErrorMessage.InstrumentNotFound}: ${id}`,
     );
 
-    ctx.body = pickFields(instrument, this.getFieldsParam(ctx));
+    ctx.body = this.pickFields(instrument, this.getFieldsParam(ctx));
   }
 
   /**
-   * Reads the ?fields=a,b query param into a list of field names.
+   * Runs the search and returns only the fields requested in ?fields= for each result.
    */
-  private getFieldsParam(ctx: Context): string[] {
-    const fields = ctx.query[QueryParam.Fields];
+  private async getSearchResponse(
+    ctx: Context,
+    query: InstrumentSearchQuery,
+  ): Promise<SearchResponse> {
+    const fields = this.getFieldsParam(ctx);
+    const { results, count, indexed_at } =
+      await this.searchService.search(query);
 
-    return typeof fields === 'string'
-      ? fields.split(',').map((field) => field.trim())
-      : [];
+    const filteredResults: Partial<InstrumentDocument>[] = results.map(
+      (document) => this.pickFields(document, fields),
+    );
+
+    return {
+      results: filteredResults,
+      count,
+      indexed_at,
+    };
   }
-}
-
-/**
- * Returns only the requested fields of a document, or the whole document when none of them exist.
- */
-function pickFields(
-  document: InstrumentDocument,
-  fields: string[],
-): Partial<InstrumentDocument> {
-  const picked = Object.entries(document).filter(([field]) =>
-    fields.includes(field),
-  );
-
-  return picked.length > 0 ? Object.fromEntries(picked) : document;
 }

@@ -4,7 +4,7 @@ export * from './models/search-query.model';
 
 // Expose the repository contract and its JSON file implementation.
 export {
-  IInstrumentsRepository,
+  InstrumentsRepository,
   JsonInstrumentsRepository,
 } from './repositories/instruments-json.repository';
 

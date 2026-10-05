@@ -11,12 +11,12 @@ import {
   FacetResult,
   InstrumentSearchQuery,
 } from '../models/search-query.model';
-import { IInstrumentsRepository } from '../repositories/instruments-json.repository';
+import { InstrumentsRepository } from '../repositories/instruments-json.repository';
 import { SearchService } from './search.service';
 
 export class FacetsService {
   constructor(
-    private repository: IInstrumentsRepository,
+    private repository: InstrumentsRepository,
     private searchService: SearchService,
   ) {}
 

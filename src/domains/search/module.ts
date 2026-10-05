@@ -3,7 +3,7 @@ import { envConfig } from '../../shared/configs/env.config';
 import { FacetsController } from './controllers/facets.controller';
 import { SearchController } from './controllers/search.controller';
 import {
-  IInstrumentsRepository,
+  InstrumentsRepository,
   JsonInstrumentsRepository,
 } from './repositories/instruments-json.repository';
 import { FacetsService } from './services/facets.service';
@@ -19,7 +19,7 @@ export interface SearchModuleResult {
 }
 
 export function initSearchModule(): SearchModuleResult {
-  const instrumentsRepository: IInstrumentsRepository =
+  const instrumentsRepository: InstrumentsRepository =
     new JsonInstrumentsRepository(envConfig.instrumentsFile);
 
   const searchService: SearchService = new SearchService(instrumentsRepository);

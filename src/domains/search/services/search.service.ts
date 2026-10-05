@@ -15,12 +15,12 @@ import {
   InstrumentSearchQuery,
   SearchResults,
 } from '../models/search-query.model';
-import { IInstrumentsRepository } from '../repositories/instruments-json.repository';
+import { InstrumentsRepository } from '../repositories/instruments-json.repository';
 
 type SortValue = string | number | boolean | null;
 
 export class SearchService {
-  constructor(private repository: IInstrumentsRepository) {}
+  constructor(private repository: InstrumentsRepository) {}
 
   /**
    * Searches instruments in the same order of steps as the real Search API.

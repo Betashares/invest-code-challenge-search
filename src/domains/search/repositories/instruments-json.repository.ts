@@ -2,7 +2,7 @@ import { readFileSync, statSync } from 'fs';
 
 import { InstrumentDocument, RawInstrument } from '../models/instrument.model';
 
-export interface IInstrumentsRepository {
+export interface InstrumentsRepository {
   // All instruments, in data source order.
   getAll(): Promise<InstrumentDocument[]>;
 
@@ -15,7 +15,7 @@ export interface IInstrumentsRepository {
  *
  * The file is read and mapped once on construction, so a missing or invalid file fails at startup.
  */
-export class JsonInstrumentsRepository implements IInstrumentsRepository {
+export class JsonInstrumentsRepository implements InstrumentsRepository {
   private readonly documents: InstrumentDocument[];
   private readonly indexedAt: number;
 
