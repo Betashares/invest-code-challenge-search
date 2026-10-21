@@ -2,10 +2,10 @@
 
 ## Scenario
 
-We need to revamp the search functionality of our Betashares website by integrating it with an already-built backend search API. The goal is to create a more intuitive and modern search experience for users by improving search performance, usability, and interface design.
+We need to revamp the search functionality of our Betashares website by integrating it with the mock Search API included in [`api/`](./api/), which runs locally. The goal is to create a more intuitive and modern search experience for users by improving search performance, usability, and interface design.
 
 1. Improve the user interface for searching
-2. Integrate the frontend with the backend search API
+2. Integrate the frontend with the local mock Search API in `api/`
 3. Ensure a smooth and intuitive search experience, including features such as instant suggestions, filters and pagination.
 4. Demonstrate a working solution, running on [`http://localhost:3000`](http://localhost:3000/)
 
@@ -47,9 +47,9 @@ Please provide the following:
 
 ---
 
-## Search API
+## Mock Search API
 
-A mock of the backend search API is provided in [`api/`](./api/). It runs locally and searches the instruments in `api/data/instruments.json`. See [`api/README.md`](./api/README.md) for the full reference.
+The mock Search API is in [`api/`](./api/). It runs locally and searches the instruments in `api/data/instruments.json`. See [`api/README.md`](./api/README.md) for the full reference.
 
 Start it from the repository root:
 
