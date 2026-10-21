@@ -1,4 +1,4 @@
-# Senior Software Engineer coding test
+# Senior Software Engineer coding challenge
 
 ## Scenario
 
@@ -40,7 +40,7 @@ We need to revamp the search functionality of our Betashares website by integrat
 Please provide the following:
 
 - **Code**
-  - Using a GitHub repository
+  - Fork this repository and build your solution in your own GitHub repository, then share its link with us
   - Using clear and meaningful commit messages
 - **Documentation**
   - Please provide a README file with setup instructions and a brief description of how it all works
@@ -110,7 +110,6 @@ POST http://localhost:8787/search
 - symbol_openfigi - `string[]`
 - kind - `string[]`
 - issuer - `string[]`
-- currency - `string[]`
 - is_betashares - `{ value: <boolean|null> }`
 - is_flagship_fund - `{ value: <boolean|null> }`
 - is_portfolio_excluded - `{ value: <boolean|null> }`

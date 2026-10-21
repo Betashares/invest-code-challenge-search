@@ -18,7 +18,6 @@ export const MULTI_SELECT_FIELDS = [
   'symbol_openfigi',
   'kind',
   'issuer',
-  'currency',
 ] as const satisfies readonly InstrumentField[];
 
 // Filters sent as { "value": true | false }.
@@ -38,7 +37,6 @@ export const RANGE_FIELDS = [
 export const FACET_FIELDS = [
   'kind',
   'issuer',
-  'currency',
   'is_betashares',
   'is_flagship_fund',
   'is_portfolio_excluded',

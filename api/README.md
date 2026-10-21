@@ -45,7 +45,7 @@ Every key is optional.
 ```jsonc
 {
   "search_text": "bank",                        // every word must appear in one field; "a OR b" for either
-  "kind": ["etf"],                              // multi-select: symbol_openfigi, kind, issuer, currency
+  "kind": ["etf"],                              // multi-select: symbol_openfigi, kind, issuer
   "is_betashares": { "value": true },           // boolean: is_betashares, is_flagship_fund,
                                                 //   is_portfolio_excluded, is_auto_invest_included
   "units_circulating": { "min": "1000000000" }, // range (numeric strings, inclusive)
