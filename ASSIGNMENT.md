@@ -31,7 +31,7 @@ We need to revamp the search functionality of our Betashares website by integrat
 
 ## Technology Stack
 
-- React, Vue or vanilla JavaScript (your choice)
+- React, Vue, Angular or vanilla JavaScript (your choice)
 - Use a pre-rolled UI design system, or roll your own CSS
 - Axios or Fetch API for API requests
 

@@ -2,7 +2,7 @@
 
 This is a coding challenge to test your flair for building a search and filters page using a mock API as the backend.
 
-You can build the app in either React or Vue, and use any third-party libraries you wish.
+You can build the app in React, Vue or Angular, and use any third-party libraries you wish.
 
 ## Contents
 
