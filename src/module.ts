@@ -1,4 +1,4 @@
-import { envConfig } from '../../shared/configs/env.config';
+import { envConfig } from './shared/configs/env.config';
 
 import { FacetsController } from './controllers/facets.controller';
 import { SearchController } from './controllers/search.controller';

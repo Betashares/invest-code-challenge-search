@@ -1,8 +1,8 @@
 import { Context } from 'koa';
 import { StatusCodes } from 'http-status-codes';
 
-import { BaseController } from '../../../shared/controllers/base.controller';
-import { ApiEndpoint, RouteParam } from '../../../shared/models/endpoint.model';
+import { BaseController } from '../shared/controllers/base.controller';
+import { ApiEndpoint, RouteParam } from '../shared/models/endpoint.model';
 
 import {
   InstrumentSearchQuery,

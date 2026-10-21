@@ -78,18 +78,17 @@ POST bodies are read as JSON whatever their `Content-Type`, as the real API does
 
 ```
 src/
-  main.ts                    bootstrap: middleware → modules → routes → listen
-  health/                    GET / health controller
-  shared/                    env config, BaseController, error / 404 middleware, endpoint enums
-  domains/search/
-    index.ts                 public barrel: models, repository, controllers, module init
-    module.ts                wires repository → services → controllers
-    controllers/             HTTP only: read and validate the request, call a service, set the response
-    services/                search and facet logic (no Koa)
-    repositories/            IInstrumentsRepository, plus the JSON file implementation that maps
-                             data/instruments.json to InstrumentDocument
-    models/                  document and query types, plus search-fields.config.ts
-    validation/              search query body validation
+  main.ts                  bootstrap: middleware → modules → routes → listen
+  index.ts                 public barrel: models, repository, controllers, module init
+  module.ts                wires repository → services → controllers
+  controllers/             HTTP only: read and validate the request, call a service, set the response
+  services/                search and facet logic (no Koa)
+  repositories/            InstrumentsRepository, plus the JSON file implementation that maps
+                           data/instruments.json to InstrumentDocument
+  models/                  document and query types, plus search-fields.config.ts
+  validation/              search query body validation
+  health/                  GET / health controller
+  shared/                  env config, BaseController, error / 404 middleware, endpoint enums
 ```
 
 ## Changing the mock
@@ -101,4 +100,4 @@ src/
 | Change ranking | `scoreTextMatch` in `services/search.service.ts` |
 | Change the default order | `applyDefaultOrder` in `services/search.service.ts` |
 | Change the data | Edit `data/instruments.json`; the dev server restarts and reloads it |
-| Use another data source | Implement `IInstrumentsRepository` and construct it in `module.ts` |
+| Use another data source | Implement `InstrumentsRepository` and construct it in `module.ts` |

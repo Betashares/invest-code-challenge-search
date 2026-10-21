@@ -1,12 +1,12 @@
 import { Context } from 'koa';
 import { StatusCodes } from 'http-status-codes';
 
-import { BaseController } from '../../../shared/controllers/base.controller';
+import { BaseController } from '../shared/controllers/base.controller';
 import {
   ApiEndpoint,
   QueryParam,
   RouteParam,
-} from '../../../shared/models/endpoint.model';
+} from '../shared/models/endpoint.model';
 
 import { InstrumentSearchQuery } from '../models/search-query.model';
 import { FacetsService } from '../services/facets.service';

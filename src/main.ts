@@ -3,11 +3,7 @@ import cors from '@koa/cors';
 import { bodyParser } from '@koa/bodyparser';
 import Router from '@koa/router';
 
-import {
-  FacetsController,
-  SearchController,
-  initSearchModule,
-} from './domains/search';
+import { FacetsController, SearchController, initSearchModule } from './index';
 import { HealthController } from './health/health.controller';
 import { envConfig } from './shared/configs/env.config';
 import { errorMiddleware } from './shared/middleware/error.middleware';
