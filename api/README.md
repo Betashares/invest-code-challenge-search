@@ -4,7 +4,7 @@ A local, read-only mock of the Betashares Search API. It searches the 834 ASX-li
 
 ## Running it
 
-From the repository root (Node 20+):
+From the repository root (Node 24.22.1+):
 
 ```bash
 npm run api:install
